@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- 引入vue -->
+    <script type="text/javascript" src="../js/vue.js"></script>
+  </head>
+  <body>
+    <div id="root">
+      <h2>欢迎收看{{name}}</h2>
+      <button v-on:click.once="info1">点我1(不传参)</button>
+      <button @click="info2(12)">点我2(传参)</button>
+    </div>
+
+    <script type="text/javascript">
+      new Vue({
+        el: "#root",
+        data: {
+          name: "pornHub",
+        },
+        methods: {
+          info1() {
+            alert("hello");
+          },
+          info2(num) {
+            console.log(num, event);
+            // alert("hello");
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

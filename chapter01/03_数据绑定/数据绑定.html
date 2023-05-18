@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- 引入vue -->
+    <script type="text/javascript" src="../js/vue.js"></script>
+  </head>
+  <body>
+    <!-- 准备好一个容器 -->
+    <div id="root">
+      单向数据绑定：<input type="text" v-bind:value="place" /><br />
+      双向数据绑定：<input type="text" v-model:value="place" />
+
+      <!-- 简写 -->
+      <br />
+      <hr />
+      单向数据绑定：<input type="text" :value="place" /><br />
+      双向数据绑定：<input type="text" v-model="place" />
+    </div>
+
+    <script type="text/javascript">
+      new Vue({
+        el: "#root",
+        data: {
+          place: "HongKong",
+        },
+      });
+    </script>
+  </body>
+</html>
