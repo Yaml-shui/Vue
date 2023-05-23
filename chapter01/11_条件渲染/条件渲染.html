@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>条件渲染</title>
+    <!-- 引入vue -->
+    <script type="text/javascript" src="../js/vue.js"></script>
+  </head>
+  <body>
+    <div id="root">
+      <h2>当前n的值为:{{n}}</h2>
+      <button @click="n++">点我n+1</button>
+
+      <!-- 使用v-show做条件渲染 -->
+      <h2 v-show="false">1,hello,{{name}}</h2>
+      <h2 v-show="1 === 1">2,hello,{{name}}</h2>
+
+      <!-- 使用v-if做条件渲染 -->
+      <h2 v-if="true">1-if,hello,{{name}}</h2>
+      <h2 v-if="1 === 1">2-if,hello,{{name}}</h2>
+
+      <div v-show="n === 1">111</div>
+      <div v-show="n === 2">222</div>
+      <div v-show="n === 3">333</div>
+
+      <div v-if="n===1">shanghai</div>
+      <div v-else-if="n===2">beijing</div>
+      <div v-else-if="n===3">taibei</div>
+      <div v-else>newyork</div>
+
+      <!-- v-if 与template的使用 -->
+      <template v-if="n ===3">
+        <h3>aaa</h3>
+        <h3>bbb</h3>
+        <h3>ccc</h3>
+      </template>
+    </div>
+  </body>
+
+  <script type="text/javascript">
+    new Vue({
+      el: "#root",
+      data: {
+        n: "0",
+        name: "TOKYO",
+      },
+    });
+  </script>
+</html>
