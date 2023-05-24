@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 引入vue -->
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="root">
+        <h2>当前相机是:{{camera}}</h2>
+        <hr>
+        <h2>当前相机是:{{camera | cameraFormat}}</h2>
+        <hr>
+        <h2>当前相机是:{{camera | cameraFormat("a7m4")}}</h2>
+        <hr>
+        <h2>当前相机是:{{camera | cameraFormat("a7m4-") | priceFormat}}</h2>
+        <hr>
+        <h2>当前相机是:{{camera | cameraFormat("a7m4-") | priceFormat | pattern}}</h2>
+
+    </div>
+    
+</body>
+
+<script type="text/javascript">
+
+    //全局过滤器
+    Vue.filter('pattern',function(value){
+        return value + "-好看"
+    })
+
+    new Vue({
+        el:"#root",
+        data:{
+            camera:"sony",
+        },
+        filters:{
+            cameraFormat(value, str="zv1"){
+                return value + str
+            },
+            priceFormat(value){
+                return value + "2W RMB"
+            }
+        }
+    })
+</script>
+</html>
