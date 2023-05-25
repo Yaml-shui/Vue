@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 引入vue -->
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+<!-- 注意：永远不要在用户输入的地方使用v-html，容易发生XSS攻击 -->
+<body>
+    <div id="root">
+        <div>{{phone}}</div>
+        <div v-text="phone">hhhhhh</div>
+        <div v-html="phone">hhhhhh</div>
+    </div>    
+</body>
+
+<script type="text/javascript">
+    new Vue({
+        el:"#root",
+        data:{
+            phone:"<h3>sony A7M4</h3>"
+        }
+    })
+</script>
+</html>
